@@ -1,105 +1,92 @@
-/* style.css */
+/* Root variables - adding more color variations and dark mode colors */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
     --background-color: #f5f6fa;
     --text-color: #2c3e50;
+    
+    /* Adding dark mode variables */
+    --dark-background: #1a1a1a;
+    --dark-text: #ffffff;
+    --dark-secondary: #2980b9;
 }
 
-/* General Styles */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
-}
-
-/* Navigation */
+/* Navigation - improving sticky behavior and mobile menu */
 nav {
     background-color: var(--secondary-color);
     padding: 1rem;
-    position: sticky;
+    position: fixed; /* Changed from sticky for better cross-browser support */
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
+/* Adding margin-top to body to account for fixed nav */
+body {
+    margin-top: 60px;
 }
 
-nav a:hover {
-    color: var(--accent-color);
-}
-
-/* Blog Post Grid */
-.post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.post-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.post-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
+/* Improving form inputs accessibility and styling */
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-/* Dark Mode Toggle */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Improving dark mode implementation */
 .dark-mode {
-    background-color: #1a1a1a;
-    color: #ffffff;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
 }
 
-/* Responsive Design */
+.dark-mode nav {
+    background-color: var(--dark-secondary);
+}
+
+.dark-mode .post-card,
+.dark-mode .contact-form {
+    background-color: #2d2d2d;
+    color: var(--dark-text);
+}
+
+/* Improving responsive design */
 @media (max-width: 768px) {
     .post-grid {
         grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    nav {
+        flex-direction: column;
+        padding: 0.5rem;
     }
     
     nav a {
         display: block;
         margin: 0.5rem 0;
+        padding: 0.5rem;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .contact-form {
+        margin: 1rem;
+        padding: 1rem;
     }
 }
