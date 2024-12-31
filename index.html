@@ -3,27 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
+    <title>Modern Blog</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Blog</h1>
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="/" class="logo">ModernBlog</a>
+                <div class="nav-links">
+                    <a href="/blog">Articles</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/admin">Admin</a>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+                </div>
+            </nav>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <p>This is the main content of the blog.</p>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Welcome to ModernBlog</h1>
+            <p class="subtitle">Thoughts, stories and ideas.</p>
+        </section>
+
+        <section class="featured-posts">
+            <h2>Featured Posts</h2>
+            <div class="post-grid">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2024 My Blog</p>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 ModernBlog. All rights reserved.</p>
+        </div>
     </footer>
-    <script src="js/main.js"></script>
+
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>
-
