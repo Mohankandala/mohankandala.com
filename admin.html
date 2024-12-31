@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ModernBlog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Dashboard</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active">Posts</a>
+                <a href="#">Comments</a>
+                <a href="#">Media</a>
+                <a href="#">Settings</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h2>Posts</h2>
+                <button class="new-post-btn">New Post</button>
+            </header>
+
+            <div class="posts-table">
+                <!-- Posts will be listed here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Post Editor Modal -->
+    <div class="modal" id="post-editor" hidden>
+        <div class="modal-content">
+            <header class="modal-header">
+                <h3>Create New Post</h3>
+                <button class="close-modal">&times;</button>
+            </header>
+            <form id="post-form">
+                <div class="form-group">
+                    <label for="post-title">Title</label>
+                    <input type="text" id="post-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="post-content">Content</label>
+                    <textarea id="post-content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="post-image">Featured Image</label>
+                    <input type="file" id="post-image" accept="image/*">
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Publish</button>
+                    <button type="button" class="save-draft">Save Draft</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js" type="module"></script>
+</body>
+</html>
